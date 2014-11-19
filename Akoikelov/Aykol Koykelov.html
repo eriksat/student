@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Aykol Koykelov</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: gray;
+        }
+
+        #global {
+            width: 50%;
+            margin: 50px auto;
+            height: 550px;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 30px;
+        }
+
+        #head {
+            width: 100%;
+            clear: both;
+        }
+
+        #photo {
+            float: left;
+            display: inline-block;
+        }
+        
+        #short_desc {
+            padding: 5px;
+            display: inline-block;
+        }
+
+        #more_information {
+            background: darkmagenta;
+            width: 100%;
+            padding: 3px 0 0 3px;
+            border-radius: 2px;
+        }
+
+        h1 {
+            color: darkgray;
+            font-size: 20px;
+            padding-left: 10px;
+        }
+
+        h2 {
+            color: darkgray;
+            font-size: 17px;
+            padding-left: 5px;
+        }
+
+        p {
+            width: 100%;
+            padding-left: 5px;
+            color: darkred;
+            word-wrap: break-word;
+        }
+
+        a.dashed_link {
+            text-decoration: none;
+            border-bottom: 1px dashed;
+            color: white;
+        }
+
+        .both {
+            clear: both;
+            height: 10px;
+        }
+
+        .lang {
+            display: inline-block;
+            opacity: 0;
+        }
+
+        #prolangs {
+            border: 2px green dashed;
+        }
+    </style>
+</head>
+<body>
+    <div id="global">
+        <div id="head">
+            <div id="photo">
+                <img src="photo.jpg" alt="Aykol Koykelov" />
+            </div>
+            
+            <div id="short_desc">
+                <h1>Краткая информация:</h1>
+                <p> Имя: Айкол</p>
+                <p> Фамилия: Койкелов</p>
+                <p> Курс: 2</p>
+                <p>Направления, по которым желаю работать: Веб-разработка, <br>разработка приложений для OS Android</p>
+            </div>
+
+        </div>
+
+        <div class="both"></div>
+
+        <div id="more_information">
+            <a href="#" class="dashed_link">Подробная информация</a>
+        </div>
+
+        <div class="both"></div>
+
+        <div id="prolangs" style="display: none">
+            <h2>
+                Языки программирования, которые я знаю:
+            </h2>
+
+            <div id="languages">
+                <div class="lang" id="java">
+                    <img src="java.jpg" />
+                </div>
+                <div class="lang" id="js">
+                    <img src="js.jpg" />
+                </div>
+                <div class="lang" id="php">
+                    <img src="php.jpg" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="jquery.js"></script>
+
+    <script>
+        $().ready(function() {
+            $('a.dashed_link').bind('click', function () {
+                $('#prolangs').animate({'height': 'toggle'}, 2000, function () {
+                    // alert('hello');
+                    $('#java', '#languages').animate({opacity: 1}, 1000);
+                    setTimeout(function() {$('#js', '#languages').animate({opacity: 1}, 1000)}, 1500);
+                    setTimeout(function() {$('#php', '#languages').animate({opacity: 1}, 1000)}, 2500);
+                });
+
+            });
+        });
+    </script>
+</body>
+</html>
